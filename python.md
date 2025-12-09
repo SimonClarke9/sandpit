@@ -87,8 +87,8 @@ with Pool(4) as p:
     p.map(process_function, data_list)
 ```
 ## Quick Reference Table
-Task	Library/Tool	Example
-Ingest CSV	Pandas	pd.read_csv()
+|--Task |--	Library/Tool |--Example |
+|--Ingest CSV	|--Pandas	|--pd.read_csv() |
 Ingest API	Requests	requests.get()
 Ingest SQL	SQLAlchemy	pd.read_sql()
 Transform Data	Pandas/PySpark	df.dropna() / df_spark.filter()

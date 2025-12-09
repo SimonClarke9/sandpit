@@ -97,7 +97,7 @@ Never expose surrogate keys outside the warehouse—they are internal identifier
 
 Example (SQL)
 sql
-'''SQL
+```SQL
 CREATE TABLE Customer_Dim (
     Customer_Key INT IDENTITY(1,1) PRIMARY KEY,
     Customer_Natural_Key VARCHAR(50),
@@ -106,7 +106,7 @@ CREATE TABLE Customer_Dim (
     Effective_Date DATE,
     Expiry_Date DATE
 );
-'''
+```
 
 ## Salted Keys (Hashed Surrogate Keys)
 Definition: A salted key is a hash-based surrogate key created by combining multiple attributes with a random or fixed “salt” string to avoid collisions.

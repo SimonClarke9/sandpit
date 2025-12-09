@@ -52,11 +52,11 @@ CROSS JOIN: Cartesian product.
 
 Example:
 
-'''SQL
+```SQL
 SELECT a.name, b.department
 FROM employees a
 INNER JOIN departments b ON a.dept_id = b.id;
-'''
+```
 
 ## Aggregations
 
@@ -72,27 +72,27 @@ GROUP BY dept_id;
 
 HAVING: Filters groups after aggregation.
 
-'''SQL
+```SQL
 SELECT dept_id, COUNT(*) 
 FROM employees 
 GROUP BY dept_id
 HAVING COUNT(*) > 5;
-'''
+```
 
 
 ## Subqueries
 
 Single-row subquery:
 
-'''SQL
+```SQL
 SELECT name FROM employees WHERE salary = (SELECT MAX(salary) FROM employees);
-'''
+```
 
 Multi-row subquery:
 
-'''SQL
+```SQL
 SELECT name FROM employees WHERE dept_id IN (SELECT id FROM departments WHERE location='NY');
-'''
+```
 
 ## Indexes & Keys
 
@@ -110,12 +110,12 @@ ACID properties: Atomicity, Consistency, Isolation, Durability.
 
 Commands:
 
-'''SQL
+```SQL
 BEGIN TRANSACTION;
 UPDATE accounts SET balance = balance - 100 WHERE id=1;
 UPDATE accounts SET balance = balance + 100 WHERE id=2;
 COMMIT;
-'''
+```
 
 ## Window Functions
 
@@ -123,13 +123,13 @@ Window functions perform calculations across a set of rows related to the curren
 
 Syntax
 
-'''SQL
+```SQL
 function_name(column) OVER (
     PARTITION BY col1
     ORDER BY col2
     ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
 )
-'''
+```
 
 Common Window Functions
 
@@ -151,39 +151,39 @@ Examples
 
 Ranking Employees by Salary:
 
-''SQL
+```SQL
 SELECT name, salary,
        RANK() OVER (ORDER BY salary DESC) AS rank
 FROM employees;
-'''
+```
 
 Running Total of Sales:
 
-'''SQL
+```SQL
 SELECT month, sales,
        SUM(sales) OVER (ORDER BY month) AS running_total
 FROM revenue;
-''' 
+``` 
 
 Compare Current vs Previous Salary:
 
 
-'''SQL
+```SQL
 SELECT name, salary,
        LAG(salary) OVER (ORDER BY hire_date) AS prev_salary
 FROM employees;
-'''
+```
 
 ## Advanced Topics
 
 CTEs (Common Table Expressions):
 
-'''SQL
+```SQL
 WITH dept_count AS (
   SELECT dept_id, COUNT(*) AS cnt FROM employees GROUP BY dept_id
 )
 SELECT * FROM dept_count WHERE cnt > 5;
-'''
+```
 
 Normalization: Organizing data to reduce redundancy.
 

@@ -23,8 +23,9 @@ SELECT id, name FROM catalog.schema.table WHERE id = 1;
 
 -- Drop table
 DROP TABLE catalog.schema.table;
-🔍 Querying Data
-sql
+```
+## Querying Data
+```sql
 -- Filtering
 SELECT * FROM orders WHERE order_date >= DATE '2025-01-01';
 

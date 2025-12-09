@@ -95,3 +95,97 @@ Transform Data	Pandas/PySpark	df.dropna() / df_spark.filter()
 Load to DB	SQLAlchemy	df.to_sql()
 Load to S3	Boto3	s3.upload_file()
 Orchestrate	Airflow	PythonOperator
+
+
+## pysparc
+```python
+from pyspark.sql import SparkSession
+
+# Initialize SparkSession
+spark = SparkSession.builder \
+    .appName("PySpark SQL Example") \
+    .getOrCreate()
+```
+## Creating DataFrames
+```python
+# From Python list
+data = [("Alice", 34), ("Bob", 45)]
+df = spark.createDataFrame(data, ["name", "age"])
+
+# From CSV
+df = spark.read.csv("data.csv", header=True, inferSchema=True)
+
+# From JSON
+df = spark.read.json("data.json")
+
+# From Parquet
+df = spark.read.parquet("data.parquet")
+```
+## Basic Operations
+```python
+# Show data
+df.show()
+
+# Select columns
+df.select("name", "age").show()
+
+# Filter rows
+df.filter(df.age > 40).show()
+
+# Group and aggregate
+df.groupBy("age").count().show()
+
+# Order by
+df.orderBy(df.age.desc()).show()
+```
+## SQL Integration
+``` python
+# Register DataFrame as SQL table
+df.createOrReplaceTempView("people")
+
+# Run SQL query
+result = spark.sql("SELECT name, age FROM people WHERE age > 40")
+result.show()
+```
+## Common SQL Functions
+```sql
+-- Aggregations
+SELECT COUNT(*), AVG(age), MAX(age), MIN(age) FROM people;
+
+-- String functions
+SELECT UPPER(name), LENGTH(name) FROM people;
+
+-- Date functions
+SELECT CURRENT_DATE, YEAR(order_date), MONTH(order_date) FROM orders;
+
+-- Joins
+SELECT o.id, c.name
+FROM orders o
+JOIN customers c ON o.customer_id = c.id;
+```
+## Advanced Features
+```python
+# Adding new column
+df = df.withColumn("age_plus_ten", df.age + 10)
+
+# Casting
+df = df.withColumn("age_str", df.age.cast("string"))
+
+# Handling nulls
+df.na.fill({"age": 0}).show()
+
+# User Defined Function (UDF)
+from pyspark.sql.functions import udf
+from pyspark.sql.types import IntegerType
+
+def add_one(x): return x + 1
+    add_one_udf = udf(add_one, IntegerType())
+    df = df.withColumn("age_plus_one", add_one_udf(df.age))
+```
+## Quick Reference Table
+Task	PySpark Code	SQL Equivalent
+Select columns	df.select("col")	SELECT col FROM table
+Filter rows	df.filter(df.col > 10)	WHERE col > 10
+Group & aggregate	df.groupBy("col").count()	GROUP BY col
+Order by	df.orderBy(df.col.desc())	ORDER BY col DESC
+Join tables	df1.join(df2, "id")	JOIN df2 ON df1.id = df2.id

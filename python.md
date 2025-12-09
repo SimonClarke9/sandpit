@@ -184,7 +184,7 @@ def add_one(x): return x + 1
     df = df.withColumn("age_plus_one", add_one_udf(df.age))
 ```
 ## Quick Reference Table
-|Task	|PySpark Code	|SQL Equivalent
+|Task	|PySpark Code	|SQL Equivalent |
 |-- |-- |
 |Select columns	|df.select("col")	|SELECT col FROM table
 |Filter rows	|df.filter(df.col > 10)	|WHERE col > 10

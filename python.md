@@ -185,7 +185,7 @@ def add_one(x): return x + 1
 ```
 ## Quick Reference Table
 |Task	|PySpark Code	|SQL Equivalent |
-|-- |-- |
+|-- |-- |-- |
 |Select columns	|df.select("col")	|SELECT col FROM table
 |Filter rows	|df.filter(df.col > 10)	|WHERE col > 10
 |Group & aggregate	|df.groupBy("col").count()	|GROUP BY col

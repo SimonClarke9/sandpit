@@ -101,8 +101,9 @@ CREATE TABLE iceberg_catalog.db.orders (
     amount DOUBLE
 )
 WITH (format='ICEBERG');
-🔍 Querying
-sql
+```
+## Querying
+```sql
 -- Basic query
 SELECT customer_id, SUM(amount) AS total_spent
 FROM iceberg_catalog.db.orders

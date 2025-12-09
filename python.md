@@ -87,14 +87,15 @@ with Pool(4) as p:
     p.map(process_function, data_list)
 ```
 ## Quick Reference Table
-|--Task |--	Library/Tool |--Example |
-|--Ingest CSV	|--Pandas	|--pd.read_csv() |
-Ingest API	Requests	requests.get()
-Ingest SQL	SQLAlchemy	pd.read_sql()
-Transform Data	Pandas/PySpark	df.dropna() / df_spark.filter()
-Load to DB	SQLAlchemy	df.to_sql()
-Load to S3	Boto3	s3.upload_file()
-Orchestrate	Airflow	PythonOperator
+|Task |	Library/Tool |Example |
+|-- |-- |-- |
+|Ingest CSV	|Pandas	|pd.read_csv() |
+|Ingest API	|Requests	|requests.get()
+|Ingest SQL	|SQLAlchemy	|pd.read_sql()
+|Transform Data	|Pandas/PySpark	|df.dropna() / df_spark.filter()
+|Load to DB	|SQLAlchemy	|df.to_sql()
+|Load to S3	|Boto3	|s3.upload_file()
+|Orchestrate	|Airflow	|PythonOperator
 
 
 ## pysparc

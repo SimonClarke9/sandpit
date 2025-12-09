@@ -20,7 +20,7 @@ TCL (Transaction Control Language): COMMIT, ROLLBACK, SAVEPOINT
 
 Select data:
 
-'''SQL
+```SQL
 SELECT column1, column2 FROM table WHERE condition;
 
 Insert data:
@@ -34,11 +34,11 @@ UPDATE table SET col1 = 'newVal' WHERE condition;
 Delete data:
 
 DELETE FROM table WHERE condition;
-'''
+```
 
 ## Joins
 
-'''SQL
+```SQL
 INNER JOIN: Returns matching rows.
 
 LEFT JOIN: All rows from left + matches from right.
@@ -48,7 +48,7 @@ RIGHT JOIN: All rows from right + matches from left.
 FULL OUTER JOIN: All rows from both tables.
 
 CROSS JOIN: Cartesian product.
-'''
+```
 
 Example:
 

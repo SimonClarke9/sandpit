@@ -1,0 +1,5 @@
+[{ "company_id" : 1, "area" : 1, "sensor_type" : "temperature", "value" : 22.5, "timestamp" : "2024-06-01T10:00:00Z" },
+ { "company_id" : 1, "area" : 2, "sensor_type" : "humidity", "value" : 45.0, "timestamp" : "2024-06-01T10:05:00Z" },
+ { "company_id" : 2, "area" : 1, "sensor_type" : "temperature", "value" : 23.0, "timestamp" : "2024-06-01T10:10:00Z" },
+ { "company_id" : 2, "area" : 3, "sensor_type" : "pressure", "value" : 1013.25, "timestamp" : "2024-06-01T10:15:00Z" }
+]

@@ -1,0 +1,12 @@
+forename,surname,sex,dob,country
+simon,clarke,m,20/02/71,uk
+amy,adams,f,15/05/85,uk
+john,doe,m,01/01/90,usa
+jane,smith,f,12/12/80,usa
+michael,brown,m,23/03/75,uk
+Simon, Clarke, M, 02/20/1971,usa
+Amy, Adams, F, 05/15/1985,usa
+John, Doe, M, 01/01/1990,uk
+Jane, Smith, F, 12/12/1980,uk
+simon,clarke,m,30/03/71,uk
+siMon, claRke, M, 02/20/1971,usa

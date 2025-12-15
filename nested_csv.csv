@@ -1,0 +1,4 @@
+date,amount,items,customer,territory
+2024-01-15,150.00,"item1;item2",Alice,North
+2025-01-01,200,"oar left, 20;oar right; 20; boat,160","simon,clarke,simonjclarke9@gmail.com",uk
+2024-02-20,300.50,"item3;item4;item5",Bob,South

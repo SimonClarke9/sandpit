@@ -1,0 +1,46 @@
+[
+    {
+        "date": "2024-01-15",
+        "amount": 150.00,
+        "items_currency": "USD",
+        "items": [
+            {
+                "item": "item1"
+            },
+            {
+                "item": "item2"
+            }
+        ],
+        "customer": {
+            "forename": "Alice"
+        },
+        "territory": "North"
+    },
+    {
+        "date": "2025-01-01",
+        "amount": 200.00,
+        "items_currency": "GBP",
+        "items": [
+            {
+                "item": "oar left",
+                "value": 20,
+                "item_currency": "GBP"
+            },
+            {
+                "item": "oar right",
+                "value": 20,
+                "item_currency": "GBP"
+            },
+            {
+                "item": "boat",
+                "value": 160,
+                "item_currency": "GBP"
+            }
+        ],
+        "customer": {
+            "forename": "simon",
+            "surname": "clarke",
+            "email": "simonclarke@somedomain.test"
+        }
+    }
+]

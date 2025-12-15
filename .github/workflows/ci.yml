@@ -24,7 +24,7 @@ jobs:
          
 
       - name: Run pytest
-        run: pytest
+        run: pytest sandpit/tests 
 
   promote-to-test:
     runs-on: windows-latest 

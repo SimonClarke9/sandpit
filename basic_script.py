@@ -48,7 +48,7 @@ def main():    # Create a simple DataFrame
     # convert dob to datetime 
     df['dob'] = df['dob'].apply(parse_mixed_date)
     df['dob'] = pd.to_datetime(df['dob']).dt.tz_localize('UTC')
-    # df['dob'] = pd.to_datetime(df['dob'])  # this convert 71 to 2071 
+   
 
     # drop duplicates
     df = df.drop_duplicates()

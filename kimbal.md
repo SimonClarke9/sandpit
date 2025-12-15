@@ -76,6 +76,7 @@ Step	Focus	Example
 2. Grain	Row definition	One row per sale
 3. Dimensions	Context	Customer, Product, Date
 4. Facts	Measures	Quantity, Revenue
+
 In short: Kimball’s dimensional modeling is about building intuitive, query-friendly star schemas with clear grains, well-defined fact tables, and descriptive dimension tables. It prioritizes usability and performance over strict normalization
 
 

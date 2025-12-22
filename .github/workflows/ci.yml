@@ -6,34 +6,40 @@ on:
   push:
     branches:
       - dev   # trigger only when pushing to the dev branch
+  workflow_dispatch:  
+
+permissions:
+  contents: write
 
 jobs:
-  build-and-test:
+  build-and-test-promote:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout dev branch
+        uses: actions/checkout@v4
+        with:
+          ref: dev
+          persist-credentials: true 
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
       - name: Install dependencies
         run: pip install -r ./requirements.txt
-        
-         
+  
+      - name: Run build step (optional)    
+        run: python build.py
 
       - name: Run pytest
-        run: pytest sandpit/tests 
+        run: | 
+          pytest tests --disable-warnings -q 
 
-  promote-to-test:
-    runs-on: windows-latest 
-    needs: build-and-test   # only runs if build-and-test succeeds
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Deploy to Test Environment
-        run: |
-          echo "Promoting build to TEST environment..."
-          # Example: copy artifacts, run deploy script, or call API
-          ./scripts/deploy.sh test
+      - name: promote-to-test:
+        if: success() 
+        run: | 
+          git fetch origin 
+          git checkout test 
+          git merge dev --no-ff -m "Promote dev to test via GitHub Actions" 
+          git push origin test

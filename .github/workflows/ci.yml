@@ -41,5 +41,7 @@ jobs:
         run: | 
           git fetch origin 
           git checkout test 
-          git merge dev --no-ff -m "Promote dev to test via GitHub Actions" 
-          git push origin test
+          git pull origin test
+          git merge origin/dev --no-ff -m "Promote dev to test via GitHub Actions" 
+          git push 
+          

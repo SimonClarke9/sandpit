@@ -1,0 +1,32 @@
+name: Test DEV in Lambda-like Docker
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  test-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build Lambda-like Docker image
+        run: |
+          docker build \
+            -t lambda-dev-test \
+            -f Dockerfile.lambda .
+
+      - name: Run tests inside container
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/var/task \
+            lambda-dev-test \
+            pytest tests --maxfail=1 --disable-warnings -q

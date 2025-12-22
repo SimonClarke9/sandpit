@@ -39,9 +39,10 @@ jobs:
       - name: promote to test
         if: success() 
         run: | 
-          git fetch origin 
-          git checkout test 
+          git pull origin dev
+          git checkout -b test
+          git push -u origin test
           git pull origin test
-          git merge origin/dev --no-ff -m "Promote dev to test via GitHub Actions" 
+          git merge origin/dev "Promote dev to test via GitHub Actions" 
           git push 
           

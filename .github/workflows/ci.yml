@@ -36,7 +36,7 @@ jobs:
         run: | 
           pytest tests --disable-warnings -q 
 
-      - name: promote to test:
+      - name: promote to test
         if: success() 
         run: | 
           git fetch origin 

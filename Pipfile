@@ -4,6 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+<<<<<<< HEAD
+=======
+pytest = "*"
+pyspark = {extras = ["sql"], version = "*"}
+>>>>>>> 1d6fa6d5d7ed7fe1d98fa8b6eb4328c6df83a330
 
 [dev-packages]
 

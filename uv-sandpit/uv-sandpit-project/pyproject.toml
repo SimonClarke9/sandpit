@@ -1,0 +1,7 @@
+[project]
+name = "uv-sandpit-project"
+version = "0.1.0"
+description = "UV  environment manager  Tutorial"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []

@@ -1,0 +1,18 @@
+digraph "Kafka → Lambda → RAW → EventBridge → Iceberg Staging" {
+	graph [fontcolor="#2D3436" fontname="Sans-Serif" fontsize=15 label="Kafka → Lambda → RAW → EventBridge → Iceberg Staging" nodesep=0.60 pad=2.0 rankdir=LR ranksep=0.75 splines=ortho]
+	node [fixedsize=true fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13 height=1.4 imagescale=true labelloc=b shape=box style=rounded width=1.4]
+	edge [color="#7B8894"]
+	"9817489a6375433b88bb071ac60339c9" [label="JSON File" height=1.9 image="./icons/json.png" shape=none]
+	"2d5d1497c6d8474d9b1569bf4926d155" [label="CSV File" height=1.9 image="./icons/csv.png" shape=none]
+	f346bff45ac84eaca72d391909bf2e14 [label="Kafka Topic" height=1.9 image="c:\Users\dmbsl\.virtualenvs\sandpit-RjBl2-Y5\Lib\site-packages\resources/onprem/queue\kafka.png" shape=none]
+	"950dc41ff4a84533bb0ae0bd65ee1a4e" [label="Process Raw Data" height=1.9 image="c:\Users\dmbsl\.virtualenvs\sandpit-RjBl2-Y5\Lib\site-packages\resources/aws/compute\lambda.png" shape=none]
+	dc46a0ba76e04b3cb13cfc575bf65e6e [label="S3 Bucket: RAW" height=1.9 image="c:\Users\dmbsl\.virtualenvs\sandpit-RjBl2-Y5\Lib\site-packages\resources/aws/storage\simple-storage-service-s3.png" shape=none]
+	"3a938db4ac714d37b7c15489c6bce654" [label="S3 Iceberg Bucket: STAGING" height=1.9 image="c:\Users\dmbsl\.virtualenvs\sandpit-RjBl2-Y5\Lib\site-packages\resources/aws/storage\simple-storage-service-s3.png" shape=none]
+	"3dfe48d805754a41b5401663b56ddc3d" [label="EventBridge Trigger" height=1.9 image="c:\Users\dmbsl\.virtualenvs\sandpit-RjBl2-Y5\Lib\site-packages\resources/aws/integration\eventbridge.png" shape=none]
+	"9817489a6375433b88bb071ac60339c9" -> f346bff45ac84eaca72d391909bf2e14 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"2d5d1497c6d8474d9b1569bf4926d155" -> f346bff45ac84eaca72d391909bf2e14 [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	f346bff45ac84eaca72d391909bf2e14 -> "950dc41ff4a84533bb0ae0bd65ee1a4e" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"950dc41ff4a84533bb0ae0bd65ee1a4e" -> dc46a0ba76e04b3cb13cfc575bf65e6e [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	dc46a0ba76e04b3cb13cfc575bf65e6e -> "3dfe48d805754a41b5401663b56ddc3d" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+	"3dfe48d805754a41b5401663b56ddc3d" -> "3a938db4ac714d37b7c15489c6bce654" [dir=forward fontcolor="#2D3436" fontname="Sans-Serif" fontsize=13]
+}

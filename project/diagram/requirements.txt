@@ -1,0 +1,4 @@
+diagrams
+graphviz
+plantuml
+mermaid-py

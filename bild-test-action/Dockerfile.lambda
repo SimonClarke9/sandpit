@@ -1,0 +1,11 @@
+FROM public.ecr.aws/lambda/python:3.11
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
+
+# Copy your dev build into the Lambda task root
+COPY . ${LAMBDA_TASK_ROOT}
+
+# Default Lambda handler (change if needed)
+CMD ["app.lambda_handler"]

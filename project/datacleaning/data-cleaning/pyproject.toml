@@ -1,0 +1,10 @@
+[project]
+name = "data-cleaning"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "path>=17.1.1",
+    "polars[simd]>=1.39.2",
+]

@@ -3,7 +3,10 @@
 
 import pytest
 
-from support_triage.services.ticket_router import (TicketRouter, ClassificationResult)
+from support_triage.services.ticket_router import (
+    ClassificationResult, 
+    TicketRouter    )
+
 
 class FakeModelClient:
     """_summary_
@@ -23,8 +26,9 @@ class FakeModelClient:
         return ClassificationResult(labels="billing", confidence=0.94)
 
 
+
     @pytest.mark.unit
-    def test_ticket_router_uses_classification_label(): 
+    def test_ticket_router_uses_classification_label(self): 
         """_summary_
         """
         router= TicketRouter( model_client=FakeModelClient()   )

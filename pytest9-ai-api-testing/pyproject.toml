@@ -14,4 +14,36 @@ dependencies = [
 [project.optional-dependencies ]
 test = [
     "pytest>=9,<10",
-    ]
+    "pytest-asyncio",
+    "httpx",
+    "pytest-mock",
+    "pytest-cov",
+    "pytest-rerunfailures",
+    "pytest-xdist",
+]   
+markers = [
+    "unit: fast tests for isolated logic",
+    "api: Test for HTTP routes, request validation, and response behavior",
+    "integration: Test for interactions between components or systems",
+    "contract: Test for API contract compliance and external services",
+    "ai: Test for AI API endpoints and responses",
+    "live: Test for live API endpoints and real-time interactions with external services",
+    "slow: test that are too slow for the default local test run",
+    "requires_network: mark test that requires network access",
+    "requires_docker: mark test that requires docker to be running",
+    "asyncio: mark test to run with asyncio event loop",
+]   
+
+[tool.pytest.ini_options]
+minversion = "9.0"
+testpaths = [ "tests", ]
+python_files = [ "test_*.py" ]
+python_functions = [ "test_*" ]
+addopts = [
+    "--maxfail=5",
+    "--disable-warnings",
+    "--tb=short",
+    "--strict-markers",
+    "--strict-config",
+]
+filterwarnings = [ "error::DeprecationWarning:support-triage.*" ]
